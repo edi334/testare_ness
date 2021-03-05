@@ -1,0 +1,27 @@
+<div class="container">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Class Name</th>
+        <th scope="col">Students</th>
+        <th scope="col">Teachers</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let class of classes">
+      <tr *ngIf="class.teachers.length">
+        <td [ngClass]="{green_rows: isGreen}">{{class.name}}</td>
+        <td [ngClass]="{green_rows: isGreen}">
+          <div *ngFor="let student of class.students" class="student_name">
+            {{student.name}}
+          </div>
+        </td>
+        <td [ngClass]="{green_rows: isGreen}">
+          <div *ngFor="let teacher of class.teachers">
+            {{teacher.name}}
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-secondary" (click)="onClick()">Delete</button>
+</div>
